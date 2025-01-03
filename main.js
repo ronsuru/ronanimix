@@ -10,7 +10,7 @@ import {
     joinMission,
     getNewPet,
     fetchPetDnaList,
-    indehoy,
+    pair,
     checkIn,
     fetchQuestList,
     joinClan,
@@ -108,7 +108,7 @@ const mergePetIds = async (headers, proxy) => {
     log.info("Number Available Male Pet:", petIds?.dadPetIds?.length || 0);
 
     if (petIds.momPetIds.length < 1) {
-        log.warn("you don't have any female pets to indehoy 😢💔");
+        log.warn("you don't have any female pets to pair ");
         return;
     }
 
@@ -123,8 +123,8 @@ const mergePetIds = async (headers, proxy) => {
         const dad = dads[dadIndex];
 
         if (mom !== undefined && dad !== undefined) {
-            log.info(`Indehoy pets ${mom} and ${dad}💕`);
-            await indehoy(headers, proxy, mom, dad);
+            log.info(`Pair pets ${mom} and ${dad}`);
+            await pair(headers, proxy, mom, dad);
 
             moms.splice(momIndex, 1);
             dads.splice(dadIndex, 1);
@@ -133,15 +133,15 @@ const mergePetIds = async (headers, proxy) => {
             const nextMom = moms[momIndex + 1];
 
             if (mom !== nextMom) {
-                log.info(`Indehoy pets ${mom} and ${nextMom}💕`);
-                await indehoy(headers, proxy, mom, nextMom);
+                log.info(`Pair pets ${mom} and ${nextMom}`);
+                await pair(headers, proxy, mom, nextMom);
 
                 moms.splice(momIndex, 1);
                 moms.splice(momIndex, 1);
                 await delay(1);
             };
         } else {
-            log.warn("you don't have any couple to indehoy 😢💔.");
+            log.warn("you don't have any couple to pair.");
             break;
         }
     }
@@ -265,7 +265,7 @@ async function startMission() {
             await delay(1);
         };
 
-        log.info("Fetching pet mom and dad can indehoy!❤️");
+        log.info("Fetching pet mom and dad can pair!");
         await mergePetIds(headers, proxy);
         await delay(1);
         try {
