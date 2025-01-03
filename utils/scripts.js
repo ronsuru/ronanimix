@@ -175,7 +175,7 @@ export async function pair(headers, proxy, mom, dad) {
     }, 3, proxy);
     const pet = data?.result?.pet || { name: "Unknown", star: 0, class: "Unknown" };
     const petInfo = { name: pet.name, star: pet.star, class: pet.class };
-    log.info(`pair ah ah successfully!😘 Born:`, JSON.stringify(petInfo));
+    log.info(`pair pets successfully!! Born:`, JSON.stringify(petInfo));
 }
 
 // Join mission
