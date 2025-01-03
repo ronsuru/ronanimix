@@ -166,7 +166,7 @@ export async function claimMission(headers, proxy, missionId) {
 }
 
 // Mix pet
-export async function indehoy(headers, proxy, mom, dad) {
+export async function pair(headers, proxy, mom, dad) {
     const payload = { dad_id: dad, mom_id: mom };
     const data = await requestWithRetry("/public/pet/mix", {
         method: "POST",
@@ -175,7 +175,7 @@ export async function indehoy(headers, proxy, mom, dad) {
     }, 3, proxy);
     const pet = data?.result?.pet || { name: "Unknown", star: 0, class: "Unknown" };
     const petInfo = { name: pet.name, star: pet.star, class: pet.class };
-    log.info(`Indehoy ah ah successfully!😘 Born:`, JSON.stringify(petInfo));
+    log.info(`pair ah ah successfully!😘 Born:`, JSON.stringify(petInfo));
 }
 
 // Join mission
